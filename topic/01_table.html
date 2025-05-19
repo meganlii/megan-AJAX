@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    /* 一、表格內外框線：設三種，中間空白隔開-寬度 樣式(直/虛/點) 顏色 */
+    /* 如果全部設定寫在這邊，無法顯示設定欄寬 */
+    /* 需要額外在td 設定列高 */
+    /* bdcl設定在table也生效，原因不詳 */
+        table,th,tr,td{
+            border: 1px solid black ;
+            border-collapse: collapse;
+        }
+        
+    /* 二、表格結構(由外到內)：寬度比、表格置中、文字靠左、文字藍色 */
+        table{
+            width: 80%;
+            /* height：整個表格不設，另外設th跟td高度 */
+            /* 寬度設比例：平均分配三個td欄寬，也不用再設tr、td */
+            margin:auto;
+            /* 表格置中 */
+            
+
+            text-align:left;
+            color:blue;
+            /* 整個填色，使用bg-c */
+        }
+
+    /* 三、標題欄：列高、文字置中、文字大小、表格填色 */
+        th{
+            height: 50px;
+            text-align: center;
+            font-size:x-large;
+            background-color: lightgreen;
+            /* 個別標題欄位填色 */
+        }
+
+    /* 四、儲存格/單元格：列高 */
+    /* 設定tr似乎也行，但高度略有差異，原因不詳 */
+        td{
+            height: 80px;
+            /* background-color: lightpink; */
+        }
+
+        .格1-2{
+            background-color: lightskyblue;
+            font-size: 150%;
+        }
+
+        #格2-1{
+            background-color: blanchedalmond;
+            font-size: 150%;
+        }
+    </style>
+
+
+</head>
+<body>
+    <table>
+        <tr>
+            <th>標題1</th>
+            <th>標題2</th>
+        </tr>
+        <tr>
+            <td style="background-color: lightpink;">
+                <p>
+                    1-1
+                    Lorem ipsum dolor sit amet.
+                </p>
+            </td>
+            <td class="格1-2">
+                <ul>
+                    <li>1-2</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td id="格2-1">2-1</td>
+            <td>
+                <p>
+                    2-2
+                    Lorem ipsum dolor sit amet.
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
