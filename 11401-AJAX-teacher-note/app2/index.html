@@ -146,26 +146,30 @@
 
   getClassrooms();
 
-
   //取得所有班級資料
   function getClassrooms() {
+    // 需要先新增 classrooms.php
+    // 變數$classrooms 來自 $classrooms=q($sql);
 
     $.get("./api/classrooms.php", function (classrooms) {
-      console.log(classrooms)
       // 處理回傳的資料
       // jQuery 的 $.get() 方法
 
-      $(".class-nav").html('');  //設定/清空內容
+      console.log(classrooms)
+
+      $(".class-nav").html('');
+      // .html() 設定/清空內容
+
       classrooms.forEach(item => {
         $(".class-nav").append(`<button data-classroom='${item.classroom}'>${item.name}</button>`)
       })
-      // 新增內容
+      // .append() 新增內容
 
       $('.class-nav button').on('click', function () {
-        // 事件綁定
+        // .on() 事件綁定
 
         let classroom = $(this).data('classroom');
-        // 資料屬性操作
+        // .data() 資料屬性操作
 
         getClassStudents(classroom);
       })
